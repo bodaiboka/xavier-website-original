@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Xavier Rivadeneira naptár</title>
+<meta name="author" content="SzinvaWeb Grafikai Stúdió">
+<meta name="description" content="Xavier Rivadeneira operaénekes eseménynaptára">
+<meta name="keywords" content="Xavier Rivadeneira, Eseménynaptár, Programok, Operák, Koncertek, Rendezvények">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, archive">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="icon" type="image/png" href="/elements/favicon.png">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="http://rivadeneira.hu">
+<meta property="og:title" content="Xavier Rivadeneira naptár">
+<meta property="og:image" content="http://rivadeneira.hu/elements/xavier-rivadeneira.png">
+<meta property="og:description" content="Xavier Rivadeneira operaénekes eseménynaptára">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="/plugins/fullcalendar/fullcalendar.css">
+<link rel="stylesheet" type="text/css" href="/plugins/qtip/jquery.qtip.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/plugins/fullcalendar/lib/moment.min.js"></script>
+<script src="/plugins/fullcalendar/fullcalendar.js"></script>
+<script src="/plugins/fullcalendar/locale/hu.js"></script><script src="/plugins/fullcalendar/gcal.js"></script>
+<script src="/plugins/qtip/jquery.qtip.min.js"></script>
+
+
+</head>
+
+<body>
+<div id="nav"> <a href="/index.html" id="logo"> <img src="/elements/xavier-rivadeneira.png" alt="Xavier Rivadeneira"> <span>Xavier Rivadeneira</span> </a>
+	<div id="menuIcon"></div>
+	<ul id="menu">
+		<li> <a href="/index.html">Főoldal</a> </li>
+		<li> <a href="/biography.html">Életrajz</a> </li>
+		<li> <a href="/repertoire.html">Repertoár</a> </li>
+		<li> <a href="/calendar.html">Naptár</a> </li>
+		<li> <a href="/gallery.html">Galéria</a> </li>
+		<li> <a href="/media.html">Média</a> </li>
+		<li> <a href="/contact.html">Kapcsolat</a> </li>
+		<li class="mobil-view"> <a href="/calendar/es" class="es">Español</a> </li>
+		<li class="mobil-view"> <a href="/calendar/en" class="en">English</a> </li>
+		<li class="mobil-view"> <a href="/calendar/hu" class="hu">Magyar</a> </li>
+	</ul>
+	<ul id="lang">
+		<li> <a href="#" class="hu">Magyar</a>
+			<ul class="dropdown">
+				<li> <a href="/calendar/es" class="es">Español</a> </li>
+				<li> <a href="/calendar/en" class="en">English</a> </li>
+				<li> <a href="/calendar/hu" class="hu">Magyar</a> </li>
+			</ul>
+		</li>
+	</ul>
+	<p id="slogan"> <span>&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
+		Kodály Zoltán</p>
+	<div id="social"> <a href="https://www.facebook.com/xavier.rivadeneira" id="facebookIcon" target="_blank"></a> <a href="https://www.youtube.com/user/XavierRivadeneira" id="youtubeIcon" target="_blank"></a> <a href="mailto:rivadeneiraxavier@gmail.com" id="mailIcon"></a> </div>
+</div>
+<div id="wrapper">
+	<div class="content">
+		<div class="col-12">
+			<h1><span>Eseménynaptár</span></h1>
+			<div id="calendar"></div>
+		</div>
+	</div>
+</div>
+<div id="mobilSlogan">
+	<p> <span>&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
+		Kodály Zoltán</p>
+</div>
+<div id="footer">
+	<p>&copy; 2024 Xavier Rivadeneira - Minden jog fenntartva!</p>
+</div>
+
+
+
+<script>
+    $(document).ready(function($){
+        $('#calendar').fullCalendar({
+            googleCalendarApiKey: 'AIzaSyCqO-JON-r3iTkTW7FPgKhQKVSBGVo0kFA',
+            events: {
+                googleCalendarId: 'l3ar2g3e79qd5tpsjlsggn3gho@group.calendar.google.com'
+            },
+            eventRender: function(event, element){
+                element.qtip({
+                    position:{my:'bottom center', at:'top center'},
+                    content: '<span class="bold upper">'+event.title+'</span><br>'+event.description+'<br>'+moment(event.start).format("HH:mm")+' - '+moment(event.end).format("HH:mm")+'<br>'+event.location,
+                    show: 'click'
+                });
+            },
+            eventClick: function(event){
+                if (event.url){
+                    return false;
+                }
+            }
+        })
+    });
+    </script>
+
+<script src="/js/effect.js"></script>
+</body>
+</html>
