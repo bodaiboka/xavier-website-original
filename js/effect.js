@@ -47,9 +47,29 @@ $(document).ready(function(){
 
 });
 
+$(document).on('click', '.hu', function(e) {
+	saveLang('hu');
+});
+
+$(document).on('click', '.en', function(e) {
+	saveLang('en');
+});
+
+$(document).on('click', '.es', function(e) {
+	saveLang('es');
+});
+
 $(document).on('click', '#menuIcon', function(e){
 	$('#menu').toggleClass('open');
 });
+
+function saveLang(lang) {
+	localStorage.setItem('lang', lang);
+}
+
+function getLang() {
+	return localStorage.getItem('lang');
+}
 
 function validateContact(){
 	var valid = true;
