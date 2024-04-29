@@ -59,17 +59,17 @@ $(document).ready(function(){
 
 $(document).on('click', '.hu', function(e) {
 	saveLang('hu');
-	location.reload(true);
+	location.reload();
 });
 
 $(document).on('click', '.en', function(e) {
 	saveLang('en');
-	location.reload(true);
+	location.reload();
 });
 
 $(document).on('click', '.es', function(e) {
 	saveLang('es');
-	location.reload(true);
+	location.reload();
 });
 
 $(document).on('click', '#menuIcon', function(e){
