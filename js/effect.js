@@ -45,18 +45,31 @@ $(document).ready(function(){
 		$('#showGallery1').trigger('click');
 	}
 
+
+	var lang = getLang();
+
+	$("[data-translate-key]").each(function() {
+		var key = $(this).data("translate-key");
+		$(this).html(strings[lang][key]);
+	});
+
+	$('#lang-selector').removeClass('hu en es');
+	$('#lang-selector').addClass(lang)
 });
 
 $(document).on('click', '.hu', function(e) {
 	saveLang('hu');
+	location.reload(true);
 });
 
 $(document).on('click', '.en', function(e) {
 	saveLang('en');
+	location.reload(true);
 });
 
 $(document).on('click', '.es', function(e) {
 	saveLang('es');
+	location.reload(true);
 });
 
 $(document).on('click', '#menuIcon', function(e){
@@ -68,7 +81,10 @@ function saveLang(lang) {
 }
 
 function getLang() {
-	return localStorage.getItem('lang');
+	if (localStorage.getItem('lang') != null)
+		return localStorage.getItem('lang');
+	else 
+		return 'hu'
 }
 
 function validateContact(){
@@ -125,3 +141,18 @@ $(document).on('click', '.back', function(e){
 	}, 'slow');
 	return false;
 });
+
+let strings = {
+	'hu' : {
+		'selected-lang': 'Magyar',
+		'home': 'Főoldal'
+	},
+	'en' : {
+		'selected-lang': 'English',
+		'home': 'Home'
+	},
+	'es' : {
+		'selected-lang': 'Español',
+		'home': 'Casa'
+	}
+}
