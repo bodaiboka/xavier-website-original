@@ -286,7 +286,7 @@ body {
 	padding-bottom: 70px;
 }
 #footer {
-	max-width: 1920px;
+	max-width: 100%;
 	background-color: #282A2B;
 }
 #footer p {
