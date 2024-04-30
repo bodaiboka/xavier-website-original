@@ -87,6 +87,7 @@ function getLang() {
 		return 'hu'
 }
 
+
 function validateContact(){
 	var valid = true;
 	var name = document.forms['contact']['name'].value;

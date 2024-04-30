@@ -21,7 +21,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/plugins/fullcalendar/lib/moment.min.js"></script>
 <script src="/plugins/fullcalendar/fullcalendar.js"></script>
-<script src="/plugins/fullcalendar/locale/hu.js"></script><script src="/plugins/fullcalendar/gcal.js"></script>
+<script src="/plugins/fullcalendar/locale/es.js"></script>
+<script src="/plugins/fullcalendar/locale/hu.js"></script>
 <script src="/plugins/qtip/jquery.qtip.min.js"></script>
 
 
@@ -31,51 +32,51 @@
 <div id="nav"> <a href="/index.html" id="logo"> <img src="/elements/xavier-rivadeneira.png" alt="Xavier Rivadeneira"> <span>Xavier Rivadeneira</span> </a>
 	<div id="menuIcon"></div>
 	<ul id="menu">
-		<li> <a data-translate-key="home" href="/index.html">Főoldal</a> </li>
-		<li> <a href="/biography.html">Életrajz</a> </li>
-		<li> <a href="/repertoire.html">Repertoár</a> </li>
-		<li> <a href="/calendar.html">Naptár</a> </li>
-		<li> <a href="/gallery.html">Galéria</a> </li>
-		<li> <a href="/media.html">Média</a> </li>
-		<li> <a href="/contact.html">Kapcsolat</a> </li>
-		<li class="mobil-view"> <a href="#" class="es">Español</a> </li>
-			<li class="mobil-view"> <a href="#" class="en">English</a> </li>
-			<li class="mobil-view"> <a href="#" class="hu">Magyar</a> </li>
-		</ul>
-		<ul id="lang">
-			<li> <a data-translate-key="selected-lang" href="#" id="lang-selector" class="hu">Magyar</a>
-				<ul class="dropdown">
-					<li> <a href="#" class="es">Español</a> </li>
-					<li> <a href="#" class="en">English</a> </li>
-					<li> <a href="#" class="hu">Magyar</a> </li>
-				</ul>
-			</li>
-		</ul>
-	<p id="slogan"> <span>&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
-		Kodály Zoltán</p>
+        <li> <a data-translate-key="home" href="/index.html">Főoldal</a> </li>
+        <li> <a data-translate-key="biography" href="/biography.html">Életrajz</a> </li>
+        <li> <a data-translate-key="repertoire" href="/repertoire.html">Repertoár</a> </li>
+        <li> <a data-translate-key="calendar" href="/calendar.html">Naptár</a> </li>
+        <li> <a data-translate-key="gallery" href="/gallery.html">Galéria</a> </li>
+        <li> <a data-translate-key="media" href="/media.html">Média</a> </li>
+        <li> <a data-translate-key="contact" href="/contact.html">Kapcsolat</a> </li>
+        <li class="mobil-view"> <a href="#" class="es">Español</a> </li>
+        <li class="mobil-view"> <a href="#" class="en">English</a> </li>
+        <li class="mobil-view"> <a href="#" class="hu">Magyar</a> </li>
+    </ul>
+    <ul id="lang">
+        <li> <a data-translate-key="selected-lang" href="#" id="lang-selector" class="hu">Magyar</a>
+            <ul class="dropdown">
+                <li> <a href="#" class="es">Español</a> </li>
+                <li> <a href="#" class="en">English</a> </li>
+                <li> <a href="#" class="hu">Magyar</a> </li>
+            </ul>
+        </li>
+    </ul>
+    <p id="slogan"> <span data-translate-key="slogan">&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
+        <span data-translate-key="kodaly">Kodály Zoltán</span></p>
 	<div id="social"> <a href="https://www.facebook.com/xavier.rivadeneira" id="facebookIcon" target="_blank"></a> <a href="https://www.youtube.com/user/XavierRivadeneira" id="youtubeIcon" target="_blank"></a> <a href="mailto:rivadeneiraxavier@gmail.com" id="mailIcon"></a> </div>
 </div>
 <div id="wrapper">
 	<div class="content">
 		<div class="col-12">
-			<h1><span>Eseménynaptár</span></h1>
+			<h1><span data-translate-key="calendar2">Eseménynaptár</span></h1>
 			<div id="calendar"></div>
 		</div>
 	</div>
 </div>
 <div id="mobilSlogan">
-	<p> <span>&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
-		Kodály Zoltán</p>
+    <p> <span data-translate-key="slogan">&quot;Zene nélkül lehet<br>élni, de nem érdemes&quot;</span> <br>
+        <span data-translate-key="kodaly">Kodály Zoltán</span></p>
 </div>
 <div id="footer">
-	<p>&copy; 2024 Xavier Rivadeneira - Minden jog fenntartva!</p>
+    <p>&copy; 2024 Xavier Rivadeneira - <span data-translate-key="copyright">Minden jog fenntartva!</span></p>
 </div>
 
-
+<script src="/js/effect.js"></script>
 
 <script>
     $(document).ready(function($){
-        $('#calendar').fullCalendar({
+        var cal = $('#calendar').fullCalendar({
             googleCalendarApiKey: 'AIzaSyCqO-JON-r3iTkTW7FPgKhQKVSBGVo0kFA',
             events: {
                 googleCalendarId: 'l3ar2g3e79qd5tpsjlsggn3gho@group.calendar.google.com'
@@ -91,11 +92,11 @@
                 if (event.url){
                     return false;
                 }
-            }
-        })
+            },
+            locale: getLang()
+        });
     });
     </script>
 
-<script src="/js/effect.js"></script>
 </body>
 </html>
