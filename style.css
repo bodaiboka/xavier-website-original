@@ -850,5 +850,5 @@ div[id^="galleryWrapper_"] > div {
 	width: 100%;
 	object-fit: cover;
 	max-width: 100%;
-	max-height: 800px;
+	max-height: 900px;
 }
